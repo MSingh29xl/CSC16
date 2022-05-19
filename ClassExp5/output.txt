@@ -1,0 +1,6 @@
+Bad ID number: 10000000
+James
+Baxter
+Age is: 20
+Bad ID number: 700000000
+Hofstra gpa is: 0

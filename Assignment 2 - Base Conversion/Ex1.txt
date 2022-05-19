@@ -1,0 +1,2 @@
+Type the base of the number here: Type your non-negative number here (from 0 - 2147483647): Your base is 16 and your number is F
+Your number in decimal base is: 15

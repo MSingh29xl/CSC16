@@ -1,0 +1,134 @@
+#include "List.h"
+using namespace std;
+
+void List::insert(DataType data) {
+ // Create new node
+ Node *newNodePtr = new Node;
+ // Set new node data to data
+ newNodePtr->data = data;
+ // Set new node pointer to first
+ newNodePtr->next = first;
+ // Set first to new node pointer
+ first = newNodePtr;
+}
+
+void List::display(std::ostream&out) {
+ Node *temp = first;
+ while(temp!=0){
+  // Print temp data
+  out<<temp->data<<std::endl;
+  // Move temp to next element in the list
+  temp = temp->next;
+ }
+}
+
+void List::insert(DataType data, int pos) {
+ // if list is empty
+ if(empty()){
+  insert(data);
+  return;
+ }
+ // If list is not empty
+ // Traverse list until we find pos - 1
+ Node *temp = first;
+ int counter = 0;
+ // While temp is not null
+ while(temp != 0 && counter < pos -1){
+  // Move to next element in the list
+  temp = temp->next;
+  // Int counter
+  counter++;
+ }
+ // When we are here we found pred
+ Node *newNode = new Node;
+ // Set data to new data
+ newNode->data = data;
+ // Set the next pointer to pred (temp) next
+ newNode->next = temp->next;
+ ////
+ // Make pred(temp) point to new node
+ temp->next = newNode;
+}
+
+void List::freeMem(){
+
+ // Init temp to beginning of the list
+ Node *temp = first;
+ // While temp is not null
+  while(temp != 0){
+   Node *savePtr = temp;
+  // Move temp to the next element in the list
+  temp = temp->next;
+  // Free memory for individual node
+  delete savePtr;
+ }
+
+}
+
+bool List::deleteByPos(int pos){
+ //if list is empty
+ if(empty()){
+  return false;
+ }
+
+ Node *temp = first;
+  int counter = 0;
+ // While temp is not null
+ while(temp != 0 && counter < pos -1){
+  // Move to next element in the list
+  temp = temp->next;
+  // Int counter
+  counter++;
+ }
+ // When we are here we found pred
+ // Save deletePtr position
+ Node *delPos = temp->next;
+ // Make temp point to next after delete pos
+ temp->next = delPos->next; //temp->next->next
+ // Delete ptr at pos
+ delete delPos;
+ // Return success
+ return true;
+}
+
+bool List::insertAtEnd(DataType data){
+    //if list is empty
+    if(empty()){
+        insert(data);
+		cout<<"false"<<endl;
+        return true;
+ }
+	// If list is not empty
+	// Traverse list until we find the end
+	Node *temp = first;
+	int counter = 0;
+	// While temp is not null
+	while(temp != 0){
+		// Move to next element in the list
+		temp = temp->next;
+		// Int counter
+		counter++;
+		}
+	// When we are here we have found the end of the linked list
+	Node *newNode = new Node;
+	// Set data to new data
+	newNode->data = data;
+	 // Set new node pointer to first
+	newNode->next = temp;
+	// Set first to new node pointer
+	temp = newNode;
+}
+	
+	
+	cout<<"true"<<endl;
+    return true;
+}
+
+bool List::deleteByValue(DataType data){
+    //if list is empty
+    if(empty()){
+        return false;
+ }
+
+    return true;
+}

@@ -1,0 +1,3 @@
+To run the file, simply execute the output file using "./baseConversion.out" in your command prompt. 
+Enter the values for the number and base that you would like to convert to  a decimal number, and the 
+decimal equivalent should promptly be printed out. Examples will be in Ex# files.
